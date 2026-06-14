@@ -6,7 +6,9 @@ if (!process.env.MONGODB_URI) {
 }
 
 const uri = process.env.MONGODB_URI
-const options = {}
+const options = {
+  serverSelectionTimeoutMS: 5000, // 5 second timeout
+}
 
 let client
 let clientPromise
