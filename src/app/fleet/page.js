@@ -3,6 +3,8 @@ import Car from '@/models/Car'
 import Link from 'next/link'
 import FleetDiscoveryEngine from './FleetDiscoveryEngine'
 
+export const dynamic = 'force-dynamic'
+
 export default async function FleetPage({ searchParams }) {
   const params = await searchParams
   const { search, type, sort } = params

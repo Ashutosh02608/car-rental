@@ -11,6 +11,8 @@ import Link from 'next/link'
 import ReservationStatusControl from "@/app/admin/reservations/ReservationStatusControl"
 import ReviewAction from "./ReviewAction"
 
+export const dynamic = 'force-dynamic'
+
 export default async function Dashboard() {
   const session = await getServerSession(authOptions)
   if (!session) {
