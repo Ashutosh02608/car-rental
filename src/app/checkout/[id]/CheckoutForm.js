@@ -108,7 +108,7 @@ export default function CheckoutForm({ reservationId, totalPrice }) {
                   
                   <h2 className="text-3xl font-black uppercase italic tracking-tighter text-white mb-4">Authorization <span className="text-green-500">Successful</span></h2>
                   <p className="text-[10px] text-white/40 font-bold uppercase tracking-[0.3em] mb-10 leading-relaxed">
-                     Your reservation cycle has been finalized. <br /> Check your manifest for telemetry updates.
+                     Your reservation cycle has been finalized. <br /> Check your manifest for status updates.
                   </p>
                   
                   <div className="flex flex-col items-center gap-4">

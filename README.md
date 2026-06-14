@@ -20,7 +20,7 @@ An immersive, peer-to-peer automotive marketplace built with a focus on luxury a
 ### **Collaboration & Communication**
 - **Secure Messaging manifest**: Reservation-linked communication threads between Renters and Owners.
 - **Automated Communication Layer**: Branded Nodemailer notifications for manifest updates and secure transmissions.
-- **Command Oversight (Admin)**: Platform-wide telemetry, identity verification, and asset deployment controls.
+- **Command Oversight (Admin)**: Platform-wide analytics, identity verification, and asset deployment controls.
 
 ---
 
@@ -28,7 +28,7 @@ An immersive, peer-to-peer automotive marketplace built with a focus on luxury a
 
 ### **Phase 1: Financial Integrity**
 - [ ] **Real Stripe Connect Integration**: Implement live credit card processing and automated owner payouts.
-- [ ] **Dynamic Pricing Telemetry**: Automated rate adjustments based on unit popularity and regional demand.
+- [ ] **Dynamic Pricing Engine**: Automated rate adjustments based on unit popularity and regional demand.
 - [ ] **Escrow Management**: Secure holding of funds until unit delivery is verified.
 
 ### **Phase 2: Member Precision**
@@ -38,7 +38,7 @@ An immersive, peer-to-peer automotive marketplace built with a focus on luxury a
 
 ### **Phase 3: Operational Scale**
 - [ ] **Mobile-First API**: REST/GraphQL layer to power native iOS/Android member experiences.
-- [ ] **Asset Telemetry**: Integration with vehicle GPS/OBD-II for real-time unit tracking.
+- [ ] **Asset Tracking**: Integration with vehicle GPS/OBD-II for real-time unit tracking.
 - [ ] **Global Insurance Module**: Automated damage reporting and insurance claim synchronization.
 
 ---

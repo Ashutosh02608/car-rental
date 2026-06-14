@@ -54,7 +54,7 @@ export default async function OwnerFleetPage() {
            <div className="lg:col-span-8 space-y-6">
               <div className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-4 flex justify-between px-10 text-[9px] font-black uppercase tracking-[0.3em] text-white/20">
                  <span>Operational Unit</span>
-                 <span>Telemetry</span>
+                 <span>Status</span>
               </div>
               
               {cars.length > 0 ? (

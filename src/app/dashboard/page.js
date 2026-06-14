@@ -98,7 +98,7 @@ export default async function Dashboard() {
                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-indigo-500">
                      {userRole === 'owner' ? 'Inbound Operations Manifest' : 'Fleet Operations Log'}
                    </h3>
-                   <span className="text-[9px] font-bold text-white/20 uppercase tracking-widest">Real-time Telemetry</span>
+                   <span className="text-[9px] font-bold text-white/20 uppercase tracking-widest">Real-time Updates</span>
                 </div>
                 
                 {dashboardData.reservations.length > 0 ? (

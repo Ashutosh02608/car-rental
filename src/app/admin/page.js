@@ -25,7 +25,7 @@ export default async function AdminDashboard() {
       <header className="mb-16">
           <div className="flex items-center gap-4 mb-4">
              <span className="h-[1px] w-12 bg-indigo-500"></span>
-             <span className="text-[11px] font-black uppercase tracking-[0.5em] text-indigo-500">Global Telemetry</span>
+             <span className="text-[11px] font-black uppercase tracking-[0.5em] text-indigo-500">Global Insights</span>
           </div>
           <h1 className="text-5xl lg:text-7xl font-black uppercase italic tracking-tighter">
             Platform <span className="text-indigo-600">Analytics</span>
@@ -42,7 +42,7 @@ export default async function AdminDashboard() {
       <div className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-12 flex items-center justify-center h-96">
          <div className="text-center opacity-20 grayscale">
             <div className="w-20 h-[1px] bg-white mx-auto mb-8"></div>
-            <p className="font-black uppercase italic tracking-[0.5em] text-sm">Visual Telemetry Offline</p>
+            <p className="font-black uppercase italic tracking-[0.5em] text-sm">Visual Data Offline</p>
             <p className="text-[10px] mt-4 font-bold uppercase tracking-widest leading-relaxed">
                Waiting for localized <br /> data synchronization
             </p>
