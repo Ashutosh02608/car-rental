@@ -5,6 +5,8 @@ import Link from 'next/link'
 import ReservationForm from './ReservationForm'
 import { getCarReviews } from '@/lib/actions/review'
 
+export const dynamic = 'force-dynamic'
+
 export default async function CarDetailPage({ params }) {
   const { id } = await params
   

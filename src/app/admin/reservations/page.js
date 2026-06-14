@@ -4,6 +4,8 @@ import "@/models/User"
 import "@/models/Car"
 import ReservationStatusControl from "./ReservationStatusControl"
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminReservations() {
   await dbConnect()
   

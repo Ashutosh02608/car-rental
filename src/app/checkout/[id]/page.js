@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import CheckoutForm from './CheckoutForm'
 
+export const dynamic = 'force-dynamic'
+
 export default async function CheckoutPage({ params }) {
   const { id } = await params
   

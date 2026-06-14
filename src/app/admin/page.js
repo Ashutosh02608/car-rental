@@ -3,6 +3,8 @@ import User from "@/models/User"
 import Car from "@/models/Car"
 import Reservation from "@/models/Reservation"
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminDashboard() {
   await dbConnect()
   

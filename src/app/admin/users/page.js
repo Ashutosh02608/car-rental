@@ -2,6 +2,8 @@ import dbConnect from "@/lib/mongodb"
 import User from "@/models/User"
 import UserManagementControl from "./UserManagementControl"
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminUsers() {
   await dbConnect()
   const users = await User.find({}).sort({ createdAt: -1 })
