@@ -53,80 +53,54 @@ export default function LoginPage() {
     }
   }
 
-  const handleMagicLink = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-    setMessage('')
 
-    const form = document.getElementById('auth-form')
-    const formData = new FormData(form)
-    const email = formData.get('email')
-
-    if (!email) {
-      setError('Please enter an email address first.')
-      setLoading(false)
-      return
-    }
-
-    const result = await signIn('email', {
-      email,
-      redirect: false,
-    })
-
-    setLoading(false)
-
-    if (result.error) {
-      setError(result.error)
-    } else {
-      setMessage('Access token transmitted. Check your inbox.')
-    }
-  }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#050505] px-4 overflow-hidden relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-50 pointer-events-none"></div>
-      <div className="absolute top-0 left-[20%] w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-30 pointer-events-none"></div>
+    <div className="flex min-h-screen items-center justify-center bg-[#030303] px-4 overflow-hidden relative pt-20">
+      {/* Background Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-30 pointer-events-none"></div>
+      <div className="absolute top-0 left-[20%] w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-20 pointer-events-none"></div>
 
       <div className="w-full max-w-md relative z-10">
-        <div className="text-center mb-10">
-          <Link href="/" className="inline-flex items-center gap-3 group mb-6">
-            <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-300 shadow-[0_0_30px_rgba(79,70,229,0.5)]">
-              <span className="text-white font-black text-2xl italic">D</span>
+        <div className="text-center mb-8">
+          <Link href="/" className="inline-flex items-center gap-3 group mb-4">
+            <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-xl">
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-indigo to-brand-purple rounded-xl rotate-3 group-hover:rotate-12 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.4)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.7)] shine-effect"></div>
+              <span className="relative z-10 text-white font-black text-xl italic font-display group-hover:scale-105 transition-all duration-300">D</span>
             </div>
           </Link>
-          <h2 className="text-3xl font-black uppercase italic tracking-tighter text-white">
+          <h2 className="text-3xl font-extrabold uppercase tracking-tight text-white font-display">
             {isLogin ? 'Sign In' : 'Sign Up'}
           </h2>
-          <p className="mt-2 text-white/40 text-[10px] font-bold uppercase tracking-[0.3em]">
+          <p className="mt-2 text-zinc-500 text-[9px] font-bold uppercase tracking-[0.3em] font-display">
             {isLogin ? 'Welcome Back / Member Portal' : 'New Account / Fleet Enrollment'}
           </p>
         </div>
         
-        <div className="bg-[#0a0a0a] p-10 rounded-2xl border border-white/5 shadow-2xl">
+        <div className="glass-panel p-8 md:p-10 shadow-2xl border border-white/5 bg-zinc-950/85">
           {message && (
-            <div className="mb-8 rounded-lg bg-indigo-500/10 p-4 text-[11px] font-bold uppercase tracking-widest text-indigo-400 border border-indigo-500/20 animate-pulse text-center">
+            <div className="mb-6 rounded-xl bg-brand-purple/10 p-4 text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-brand-purple/20 animate-pulse text-center font-display">
               {message}
             </div>
           )}
 
           {error && (
-            <div className="mb-8 rounded-lg bg-red-500/10 p-4 text-[11px] font-bold uppercase tracking-widest text-red-400 border border-red-500/20 text-center">
+            <div className="mb-6 rounded-xl bg-red-500/10 p-4 text-[10px] font-bold uppercase tracking-wider text-red-400 border border-red-500/20 text-center font-display">
               {error}
             </div>
           )}
 
-          <form className="space-y-6" id="auth-form" onSubmit={handleAuth}>
+          <form className="space-y-5" id="auth-form" onSubmit={handleAuth}>
             {!isLogin && (
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-2 gap-4 mb-6">
                 <button
                   type="button"
                   onClick={() => setSelectedRole('renter')}
                   className={`py-3 px-4 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${
                     selectedRole === 'renter' 
-                      ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.1)]' 
-                      : 'bg-white/5 text-white/40 border-white/5 hover:border-white/20'
+                      ? 'bg-white text-black border-white shadow-[0_0_15px_rgba(255,255,255,0.05)]' 
+                      : 'bg-white/5 text-zinc-500 border-white/5 hover:border-white/10'
                   }`}
                 >
                   I want to Rent
@@ -136,8 +110,8 @@ export default function LoginPage() {
                   onClick={() => setSelectedRole('owner')}
                   className={`py-3 px-4 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${
                     selectedRole === 'owner' 
-                      ? 'bg-indigo-600 text-white border-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)]' 
-                      : 'bg-white/5 text-white/40 border-white/5 hover:border-white/20'
+                      ? 'bg-gradient-to-r from-brand-indigo to-brand-purple text-white border-transparent shadow-[0_0_15px_rgba(79,70,229,0.2)]' 
+                      : 'bg-white/5 text-zinc-500 border-white/5 hover:border-white/10'
                   }`}
                 >
                   I own a Car
@@ -145,9 +119,9 @@ export default function LoginPage() {
               </div>
             )}
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div>
-                <label htmlFor="email-address" className="block text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mb-2 ml-1">
+                <label htmlFor="email-address" className="block text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-2 ml-1 font-display">
                   Email Address
                 </label>
                 <input
@@ -156,12 +130,12 @@ export default function LoginPage() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="block w-full rounded-xl border-white/5 bg-white/[0.03] px-5 py-4 text-white text-sm focus:bg-white/[0.05] focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all duration-300 outline-none placeholder:text-white/10 font-medium border"
+                  className="block w-full rounded-xl border-white/5 bg-white/[0.02] px-5 py-3.5 text-white text-sm focus:bg-white/[0.04] focus:ring-1 focus:ring-brand-purple focus:border-transparent transition-all duration-300 outline-none placeholder:text-white/5 font-medium border"
                   placeholder="name@example.com"
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mb-2 ml-1">
+                <label htmlFor="password" className="block text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-2 ml-1 font-display">
                   Password
                 </label>
                 <input
@@ -170,7 +144,7 @@ export default function LoginPage() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-xl border-white/5 bg-white/[0.03] px-5 py-4 text-white text-sm focus:bg-white/[0.05] focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all duration-300 outline-none placeholder:text-white/10 font-medium border"
+                  className="block w-full rounded-xl border-white/5 bg-white/[0.02] px-5 py-3.5 text-white text-sm focus:bg-white/[0.04] focus:ring-1 focus:ring-brand-purple focus:border-transparent transition-all duration-300 outline-none placeholder:text-white/5 font-medium border"
                   placeholder="••••••••••••"
                 />
               </div>
@@ -180,32 +154,24 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full rounded-xl bg-indigo-600 py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-[0_0_40px_rgba(79,70,229,0.2)] hover:bg-indigo-700 hover:shadow-[0_0_50px_rgba(79,70,229,0.4)] transition-all active:scale-[0.98] disabled:opacity-50"
+                className="w-full rounded-xl bg-gradient-to-r from-brand-indigo to-brand-purple py-3.5 text-xs font-black uppercase tracking-widest text-white shadow-[0_0_30px_rgba(99,102,241,0.15)] hover:shadow-[0_0_35px_rgba(99,102,241,0.3)] transition-all active:scale-[0.98] disabled:opacity-50 font-display cursor-pointer"
               >
                 {loading ? 'Processing...' : isLogin ? 'Sign In' : 'Sign Up'}
               </button>
             </div>
           </form>
 
-          <div className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-4">
-            <button
-              onClick={handleMagicLink}
-              disabled={loading}
-              className="w-full rounded-xl bg-white/5 border border-white/5 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-white/60 hover:bg-white/[0.08] hover:text-white transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              Email Magic Link
-            </button>
-            
+          <div className="mt-6 pt-6 border-t border-white/5 flex flex-col gap-3">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 hover:text-indigo-500 transition-colors text-center py-2"
+              className="text-[9px] font-black uppercase tracking-widest text-zinc-500 hover:text-brand-purple transition-colors text-center py-2 cursor-pointer font-display"
             >
               {isLogin ? 'Create New Account' : 'Already have an account?'}
             </button>
           </div>
         </div>
 
-        <p className="mt-8 text-center text-[9px] font-bold uppercase tracking-[0.4em] text-white/10">
+        <p className="mt-6 text-center text-[8px] font-bold uppercase tracking-[0.3em] text-zinc-700 font-display">
           Encrypted Session / Automotive Excellence Group
         </p>
       </div>

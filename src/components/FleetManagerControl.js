@@ -22,7 +22,7 @@ export default function FleetManagerControl() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {message && (
-        <p className="p-3 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-widest text-center rounded-lg">
+        <p className="p-3 bg-brand-purple/10 border border-brand-purple/20 text-brand-purple text-[10px] font-black uppercase tracking-widest text-center rounded-lg">
           {message}
         </p>
       )}
@@ -33,7 +33,10 @@ export default function FleetManagerControl() {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-[8px] font-black uppercase tracking-widest text-white/20 mb-2 ml-1 italic">Type</label>
-          <select name="type" className="w-full bg-[#0a0a0a] border border-white/5 rounded-xl px-4 py-3 text-white text-xs outline-none focus:ring-1 focus:ring-indigo-600 transition-all">
+          <select 
+            name="type" 
+            className="w-full bg-[#070708] border border-white/5 rounded-xl px-4 py-3 text-white text-xs outline-none focus:border-brand-purple/50 focus:ring-1 focus:ring-brand-purple/50 transition-all cursor-pointer"
+          >
              <option value="Sport" className="bg-[#0a0a0a] text-white">Sport</option>
              <option value="Luxury" className="bg-[#0a0a0a] text-white">Luxury</option>
              <option value="SUV" className="bg-[#0a0a0a] text-white">SUV</option>
@@ -53,7 +56,7 @@ export default function FleetManagerControl() {
       <div className="pt-4">
         <button 
           disabled={loading}
-          className="w-full py-4 bg-indigo-600 text-white font-black uppercase italic text-[10px] tracking-[0.2em] rounded-xl hover:bg-indigo-700 transition-all active:scale-[0.98] disabled:opacity-50"
+          className="w-full py-4 bg-gradient-to-r from-brand-indigo to-brand-purple hover:shadow-[0_0_20px_rgba(139,92,246,0.25)] text-white font-black uppercase italic text-[10px] tracking-[0.2em] rounded-xl hover:scale-[1.01] transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer"
         >
           {loading ? 'Processing...' : 'Authorize Unit Deployment'}
         </button>
@@ -71,7 +74,7 @@ function AdminInput({ name, label, placeholder, type = "text" }) {
         type={type} 
         required
         placeholder={placeholder}
-        className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-4 py-3 text-white text-xs outline-none focus:ring-1 focus:ring-indigo-600 transition-all placeholder:text-white/5"
+        className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-4 py-3 text-white text-xs outline-none focus:border-brand-purple/50 focus:ring-1 focus:ring-brand-purple/50 transition-all placeholder:text-white/10"
       />
     </div>
   )

@@ -30,26 +30,28 @@ export default function MessageList({ reservationId, initialMessages, currentUse
   }
 
   return (
-    <div className="flex flex-col h-[600px] bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-hidden">
+    <div className="flex flex-col h-[550px] glass-panel border border-white/5 rounded-2xl overflow-hidden bg-zinc-950/60 shadow-2xl relative">
       {/* Thread Container */}
       <div 
         ref={scrollRef}
-        className="flex-1 p-8 overflow-y-auto space-y-6 scrollbar-hide"
+        className="flex-1 p-6 overflow-y-auto space-y-4 scrollbar-hide"
       >
         {messages.length === 0 ? (
           <div className="h-full flex items-center justify-center">
-             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/10 italic">Secure Thread Initialized</p>
+             <p className="text-[9px] font-black uppercase tracking-[0.3em] text-zinc-600 italic font-display">Secure Thread Initialized</p>
           </div>
         ) : (
           messages.map((msg) => {
             const isMe = msg.sender === currentUserId
             return (
               <div key={msg._id} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[70%] p-5 rounded-2xl ${
-                  isMe ? 'bg-indigo-600 text-white rounded-br-none' : 'bg-white/5 text-white/80 rounded-bl-none border border-white/5'
+                <div className={`max-w-[70%] p-4.5 rounded-2xl ${
+                  isMe 
+                    ? 'bg-gradient-to-r from-brand-indigo to-brand-purple text-white rounded-br-none shadow-[0_4px_15px_rgba(99,102,241,0.1)]' 
+                    : 'bg-white/5 text-zinc-300 rounded-bl-none border border-white/5'
                 }`}>
-                  <p className="text-sm font-medium leading-relaxed tracking-wide">{msg.content}</p>
-                  <p className={`text-[8px] mt-2 font-black uppercase tracking-widest ${isMe ? 'text-white/50' : 'text-white/20'}`}>
+                  <p className="text-xs font-medium leading-relaxed tracking-wide font-sans">{msg.content}</p>
+                  <p className={`text-[7px] mt-2 font-black uppercase tracking-widest font-mono ${isMe ? 'text-white/60' : 'text-zinc-600'}`}>
                     {new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
@@ -60,19 +62,21 @@ export default function MessageList({ reservationId, initialMessages, currentUse
       </div>
 
       {/* Input Area */}
-      <div className="p-6 bg-white/[0.01] border-t border-white/5">
+      <div className="p-4 bg-white/[0.01] border-t border-white/5">
         <form onSubmit={handleSend} className="relative">
           <input 
             name="content"
             autoComplete="off"
+            required
             placeholder="TYPE MESSAGE / TRANSMIT SECURELY"
-            className="w-full bg-[#050505] border border-white/5 rounded-xl px-6 py-4 text-xs font-black uppercase tracking-widest text-white outline-none focus:ring-1 focus:ring-indigo-600 transition-all placeholder:text-white/10"
+            className="w-full bg-[#050505] border border-white/5 rounded-xl px-5 py-4 pr-24 text-[10px] font-black uppercase tracking-widest text-white outline-none focus:border-brand-purple/50 focus:ring-1 focus:ring-brand-purple/50 transition-all placeholder:text-zinc-700 font-display"
           />
           <button 
+            type="submit"
             disabled={loading}
-            className="absolute right-3 top-1/2 -translate-y-1/2 px-4 py-2 bg-indigo-600 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-indigo-500 transition-all disabled:opacity-50"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 px-4 py-2 bg-gradient-to-r from-brand-indigo to-brand-purple text-[9px] font-black uppercase tracking-widest rounded-lg hover:shadow-[0_0_15px_rgba(99,102,241,0.35)] transition-all disabled:opacity-50 text-white font-display cursor-pointer"
           >
-            {loading ? '...' : 'Send'}
+            {loading ? 'Transmitting' : 'Send'}
           </button>
         </form>
       </div>

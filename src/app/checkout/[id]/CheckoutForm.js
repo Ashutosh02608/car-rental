@@ -32,54 +32,54 @@ export default function CheckoutForm({ reservationId, totalPrice }) {
   }
 
   return (
-    <div className="bg-[#0a0a0a] p-10 border border-white/5 rounded-2xl relative overflow-hidden">
-       <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white/40 mb-10">Electronic Authorization</h3>
+    <div className="glass-panel p-8 md:p-10 border border-white/5 rounded-2xl relative overflow-hidden bg-zinc-950/80">
+       <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-8 font-display">Electronic Authorization</h3>
        
-       <div className="space-y-8">
+       <div className="space-y-6">
           {/* Card Number Mock */}
-          <div className="space-y-3">
-            <label className="text-[9px] font-black uppercase tracking-widest text-white/20 ml-1 italic">Card Identifier</label>
+          <div className="space-y-2">
+            <label className="text-[9px] font-black uppercase tracking-widest text-zinc-500 ml-1 font-display">Card Identifier</label>
             <div className="relative group">
                <input 
                  type="text" 
                  readOnly
                  value="4242 - 4242 - 4242 - 4242" 
-                 className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-6 py-5 text-white/60 text-sm font-mono tracking-[0.3em] outline-none"
+                 className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-5 py-4 text-zinc-400 text-sm font-mono tracking-wider outline-none"
                />
-               <div className="absolute right-6 top-1/2 -translate-y-1/2 flex gap-2">
-                  <div className="w-8 h-5 bg-indigo-500/20 rounded-sm border border-indigo-500/30"></div>
+               <div className="absolute right-5 top-1/2 -translate-y-1/2 flex gap-2">
+                  <div className="w-8 h-5 bg-brand-indigo/20 rounded-sm border border-brand-indigo/30"></div>
                   <div className="w-8 h-5 bg-white/10 rounded-sm border border-white/20"></div>
                </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
-             <div className="space-y-3">
-                <label className="text-[9px] font-black uppercase tracking-widest text-white/20 ml-1 italic">Expiration</label>
+          <div className="grid grid-cols-2 gap-6">
+             <div className="space-y-2">
+                <label className="text-[9px] font-black uppercase tracking-widest text-zinc-500 ml-1 font-display">Expiration</label>
                 <input 
                   type="text" 
                   readOnly
                   value="12 / 28" 
-                  className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-6 py-5 text-white/60 text-sm font-mono outline-none"
+                  className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-5 py-4 text-zinc-400 text-sm font-mono outline-none"
                 />
              </div>
-             <div className="space-y-3">
-                <label className="text-[9px] font-black uppercase tracking-widest text-white/20 ml-1 italic">Security Hash</label>
+             <div className="space-y-2">
+                <label className="text-[9px] font-black uppercase tracking-widest text-zinc-500 ml-1 font-display">Security Hash</label>
                 <input 
                   type="text" 
                   readOnly
                   value="999" 
-                  className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-6 py-5 text-white/60 text-sm font-mono outline-none"
+                  className="w-full bg-white/[0.02] border border-white/5 rounded-xl px-5 py-4 text-zinc-400 text-sm font-mono outline-none"
                 />
              </div>
           </div>
 
-          <div className="pt-6">
+          <div className="pt-4">
              <button 
                onClick={handlePayment}
                disabled={loading || success}
-               className={`w-full py-5 text-white font-black uppercase italic text-xs tracking-[0.3em] rounded-xl shadow-[0_0_50px_rgba(79,70,229,0.3)] transition-all active:scale-[0.98] ${
-                 success ? 'bg-green-600 shadow-[0_0_50px_rgba(34,197,94,0.3)]' : 'bg-indigo-600 hover:bg-indigo-500'
+               className={`w-full py-4 text-white font-black uppercase text-xs tracking-wider rounded-xl shadow-[0_0_30px_rgba(99,102,241,0.15)] transition-all active:scale-[0.98] cursor-pointer font-display ${
+                 success ? 'bg-green-600 shadow-[0_0_30px_rgba(34,197,94,0.3)]' : 'bg-gradient-to-r from-brand-indigo to-brand-purple hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]'
                }`}
              >
                 {loading ? 'Authorizing...' : success ? 'Transaction Complete' : `Execute Total Payment: $${totalPrice}`}
@@ -87,38 +87,38 @@ export default function CheckoutForm({ reservationId, totalPrice }) {
           </div>
        </div>
 
-       <div className="mt-10 flex items-center justify-center gap-6 opacity-20 grayscale">
-          <span className="text-[8px] font-black uppercase tracking-widest">PCI-DSS Compliant</span>
-          <span className="text-[8px] font-black uppercase tracking-widest">AES-256 Encrypted</span>
+       <div className="mt-8 flex items-center justify-center gap-6 opacity-30">
+          <span className="text-[8px] font-black uppercase tracking-widest font-display text-zinc-400">PCI-DSS Compliant</span>
+          <span className="text-[8px] font-black uppercase tracking-widest font-display text-zinc-400">AES-256 Encrypted</span>
        </div>
 
        {/* Success Dialog Overlay */}
        {success && (
-         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-6">
-            <div className="max-w-md w-full bg-[#0a0a0a] border border-white/10 rounded-3xl p-12 text-center relative overflow-hidden">
+         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-6">
+            <div className="max-w-md w-full glass-panel border border-white/10 rounded-3xl p-10 text-center relative overflow-hidden bg-zinc-950/90 shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
                {/* Background Glow */}
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/10 rounded-full blur-[80px] pointer-events-none"></div>
 
                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-green-500/10 border border-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_40px_rgba(34,197,94,0.2)]">
-                     <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-18 h-18 bg-green-500/10 border border-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.15)]">
+                     <svg className="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                      </svg>
                   </div>
                   
-                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-white mb-4">Authorization <span className="text-green-500">Successful</span></h2>
-                  <p className="text-[10px] text-white/40 font-bold uppercase tracking-[0.3em] mb-10 leading-relaxed">
+                  <h2 className="text-2xl font-bold uppercase tracking-tight text-white mb-3 font-display">Authorization <span className="text-green-500">Successful</span></h2>
+                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em] mb-8 leading-relaxed font-sans">
                      Your reservation cycle has been finalized. <br /> Check your manifest for status updates.
                   </p>
                   
-                  <div className="flex flex-col items-center gap-4">
+                  <div className="flex flex-col items-center gap-3">
                      <div className="w-full bg-white/5 h-1 rounded-full overflow-hidden mb-2">
                         <div 
-                          className="bg-indigo-600 h-full transition-all duration-1000 ease-linear"
+                          className="bg-brand-purple h-full transition-all duration-1000 ease-linear"
                           style={{ width: `${(countdown / 5) * 100}%` }}
                         ></div>
                      </div>
-                     <p className="text-[9px] font-black uppercase tracking-widest text-indigo-500 animate-pulse">
+                     <p className="text-[9px] font-black uppercase tracking-wider text-brand-purple animate-pulse font-display">
                         Redirecting to command center in {countdown}s
                      </p>
                   </div>

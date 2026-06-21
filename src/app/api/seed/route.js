@@ -10,7 +10,7 @@ const sampleCars = [
     pricePerDay: 2500,
     horsepower: 986,
     topSpeed: 340,
-    imageUrl: 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/cars/ferrari-sf90.png',
   },
   {
     brand: 'Porsche',
@@ -19,7 +19,7 @@ const sampleCars = [
     pricePerDay: 1800,
     horsepower: 518,
     topSpeed: 296,
-    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/cars/porsche-911.png',
   },
   {
     brand: 'Rolls-Royce',
@@ -28,7 +28,7 @@ const sampleCars = [
     pricePerDay: 3500,
     horsepower: 563,
     topSpeed: 250,
-    imageUrl: 'https://images.unsplash.com/photo-1631214503020-f9471192994c?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/cars/rolls-royce-phantom.png',
   },
   {
     brand: 'Tesla',
@@ -37,7 +37,7 @@ const sampleCars = [
     pricePerDay: 900,
     horsepower: 1020,
     topSpeed: 322,
-    imageUrl: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/cars/tesla-model-s.png',
   },
   {
     brand: 'Lamborghini',
@@ -46,7 +46,7 @@ const sampleCars = [
     pricePerDay: 1500,
     horsepower: 666,
     topSpeed: 306,
-    imageUrl: 'https://images.unsplash.com/photo-1632243193741-b308ad3d02c3?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/cars/lamborghini-urus.png',
   },
   {
     brand: 'Bentley',
@@ -55,7 +55,7 @@ const sampleCars = [
     pricePerDay: 1200,
     horsepower: 650,
     topSpeed: 335,
-    imageUrl: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/cars/bentley-continental.png',
   }
 ]
 

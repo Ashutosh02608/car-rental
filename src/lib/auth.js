@@ -1,7 +1,7 @@
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import clientPromise from "@/lib/mongodb-client"
 import CredentialsProvider from "next-auth/providers/credentials"
-import EmailProvider from "next-auth/providers/email"
+
 import dbConnect from "@/lib/mongodb"
 import User from "@/models/User"
 import bcrypt from "bcryptjs"
@@ -9,10 +9,7 @@ import bcrypt from "bcryptjs"
 export const authOptions = {
   adapter: MongoDBAdapter(clientPromise),
   providers: [
-    EmailProvider({
-      server: process.env.EMAIL_SERVER,
-      from: process.env.EMAIL_FROM,
-    }),
+
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -75,6 +72,16 @@ export const authOptions = {
         session.user.role = token.role
       }
       return session
+    },
+  },
+  logger: {
+    error(code, metadata) {
+      if (code === "JWT_SESSION_ERROR") {
+        // Log as a warning to keep dev logs clean and prevent next.js dev overlay popups
+        console.warn(`[next-auth][warn][${code}]: Session decryption failed (stale cookie or changed secret). User is treated as logged out.`);
+        return;
+      }
+      console.error(code, metadata);
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
